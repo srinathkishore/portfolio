@@ -6,7 +6,6 @@
 
 /* ── Design Tokens ───────────────────────────────────────────────── */
 :root {
-  /* Palette */
   --ink: #080808;
   --ink-2: #111111;
   --paper: #f0ede6;
@@ -17,38 +16,47 @@
   --mist: #3a3a3a;
   --white: #f2efe9;
   --white-dim: rgba(242, 239, 233, 0.65);
-
-  /* Typography */
   --font-display: "Bebas Neue", Impact, sans-serif;
   --font-body: "DM Sans", "Helvetica Neue", system-ui, sans-serif;
   --font-mono: "DM Mono", "Fira Mono", monospace;
-
-  /* Spacing scale (4px base) */
   --space-1: 0.25rem;
+
   /* 4px */
   --space-2: 0.5rem;
+
   /* 8px */
   --space-3: 0.75rem;
+
   /* 12px */
   --space-4: 1rem;
+
   /* 16px */
   --space-5: 1.25rem;
+
   /* 20px */
   --space-6: 1.5rem;
+
   /* 24px */
   --space-8: 2rem;
+
   /* 32px */
   --space-10: 2.5rem;
+
   /* 40px */
   --space-12: 3rem;
+
   /* 48px */
   --space-16: 4rem;
+
   /* 64px */
   --space-20: 5rem;
+
   /* 80px */
   --space-24: 6rem;
+
   /* 96px */
   --space-32: 8rem;
+
   /* 128px */
 
   /* Radius */
@@ -92,6 +100,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+
   /* cursor managed via JS: custom on pointer devices, native on touch */
 }
 
@@ -117,16 +126,18 @@ button {
 /* Hide default scrollbar, add custom thin one */
 html {
   scrollbar-width: none;
+
   /* Firefox */
 }
 
 html::-webkit-scrollbar {
   display: none;
+
   /* Chrome/Safari */
 }
 
 /* Grain overlay */
-body::before {
+/* body::before {
   content: "";
   position: fixed;
   inset: 0;
@@ -134,7 +145,7 @@ body::before {
   pointer-events: none;
   z-index: 9999;
   opacity: 0.3;
-}
+} */
 
 /* ── Accessibility ───────────────────────────────────────────────── */
 .skip-link {
@@ -145,6 +156,7 @@ body::before {
   color: var(--white);
   font-family: var(--font-body);
   font-size: 0.8125rem;
+
   /* 13px */
   letter-spacing: 0.08em;
   padding: var(--space-3) var(--space-6);
@@ -165,6 +177,7 @@ body::before {
 }
 
 /* ── Custom Cursor — pointer devices only ────────────────────────── */
+
 /* Hidden by default; JS adds .has-custom-cursor to <html> on hover devices */
 .cursor-dot,
 .cursor-ring {
@@ -251,6 +264,7 @@ html.has-custom-cursor .cursor-ring {
     padding 0.35s var(--ease-out),
     background 0.35s,
     border-color 0.35s;
+
   /* overflow visible so ::after can bleed outside the border-bottom */
   overflow: visible;
 }
@@ -260,6 +274,7 @@ html.has-custom-cursor .cursor-ring {
   content: "";
   position: absolute;
   bottom: -2px;
+
   /* sits flush below the border-bottom line */
   left: 0;
   height: 2px;
@@ -300,6 +315,7 @@ html.has-custom-cursor .cursor-ring {
 
 #site-header nav a {
   font-size: 0.8125rem;
+
   /* 13px — legible */
   font-weight: 400;
   letter-spacing: 0.1em;
@@ -484,6 +500,7 @@ section {
   contain: layout paint;
   content-visibility: auto;
   contain-intrinsic-size: 0 600px;
+
   /* estimated height to prevent CLS */
 }
 
@@ -624,11 +641,13 @@ section {
 /* Desktop: text on left, image on right — swap visual order from DOM order */
 .hero-right {
   order: 1;
+
   /* image is first in DOM, keep it right on desktop */
 }
 
 .hero-left {
   order: 0;
+
   /* text visually first on desktop */
 }
 
@@ -750,6 +769,7 @@ section {
 .stat-label {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
+
   /* 11px */
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -771,12 +791,15 @@ section {
 .hero-img-wrap {
   position: relative;
   width: 100%;
+
   /* Width cap: never wider than half the viewport height */
   max-width: 50svw;
+
   /* Height cap: full available hero area minus 2svh padding allowance */
   max-height: calc(100svh - var(--nav-h) - 2svh);
+
   /* Aspect ratio drives the natural size; max-* clamps from above */
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3/2;
   border-radius: var(--radius-lg);
   overflow: hidden;
   flex-shrink: 0;
@@ -790,12 +813,15 @@ section {
   height: 100%;
   object-fit: cover;
   object-position: center top;
+
   /* keep face visible */
-  filter: grayscale(30%) brightness(0.8);
+
+  /* filter: grayscale(30%) brightness(0.8); */
   opacity: 0;
   animation: fadeIn 1.1s 0.9s ease forwards;
   will-change: transform;
   border-radius: var(--radius-lg);
+
   /* Prevent the img from growing outside its positioned wrapper */
   display: block;
   max-width: 100%;
@@ -824,6 +850,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+
   /* Vertical whitespace top and bottom */
   padding: var(--space-16) var(--space-10);
   overflow: hidden;
@@ -833,6 +860,7 @@ section {
 /* Frame wraps the image + all absolute overlays so they track the image */
 .about-img-frame {
   position: relative;
+
   /* Match the same sizing constraints as the old about-img */
   width: 100%;
   max-width: 50svw;
@@ -2004,6 +2032,7 @@ section {
     padding: 0 var(--space-5) var(--space-6);
     justify-content: center;
     align-items: flex-start;
+
     /* Reset the order:0 override from desktop */
     order: 3;
   }
@@ -2011,9 +2040,11 @@ section {
   .hero-img-wrap {
     width: 90svw;
     max-width: 90svw;
+
     /* Limit height so image doesn't dominate small screens */
     max-height: 55svh;
-    aspect-ratio: 4 / 5;
+
+    /* aspect-ratio: 4 / 5; */
   }
 
   /* CTA buttons */
