@@ -28,27 +28,40 @@
 
   /* ─────────────────────────────────────────────────────────────────
      1. CUSTOM CURSOR
-     Only active on pointer (hover-capable) devices — never on touch
+     Only active on hover-capable (non-touch) devices.
+     Hides completely when cursor leaves the page.
   ─────────────────────────────────────────────────────────────────── */
   function initCursor() {
     const dot = qs("#cursorDot");
     const ring = qs("#cursorRing");
     if (!dot || !ring) return;
 
-    // Abort on touch-primary devices; keep native cursor
     if (window.matchMedia("(hover: none)").matches) {
       dot.remove();
       ring.remove();
       return;
     }
 
-    // Signal CSS to hide body cursor and show custom elements
     document.documentElement.classList.add("has-custom-cursor");
 
     let mx = 0,
       my = 0;
     let rx = 0,
       ry = 0;
+    let visible = false;
+
+    function showCursor() {
+      if (visible) return;
+      visible = true;
+      dot.classList.remove("hidden");
+      ring.classList.remove("hidden");
+    }
+
+    function hideCursor() {
+      visible = false;
+      dot.classList.add("hidden");
+      ring.classList.add("hidden");
+    }
 
     on(
       document,
@@ -58,6 +71,7 @@
         my = e.clientY;
         dot.style.left = mx + "px";
         dot.style.top = my + "px";
+        showCursor();
       },
       { passive: true },
     );
@@ -71,9 +85,10 @@
     }
     lerpRing();
 
-    // Hide cursor when leaving window
-    on(document, "mouseleave", () => dot.classList.add("hidden"));
-    on(document, "mouseenter", () => dot.classList.remove("hidden"));
+    on(document, "mouseleave", hideCursor);
+    on(document, "mouseenter", showCursor);
+
+    hideCursor();
   }
 
   /* ─────────────────────────────────────────────────────────────────
@@ -85,25 +100,20 @@
     const sections = qsa("section[id]");
     if (!header) return;
 
-    let lastScrollY = 0;
     let ticking = false;
 
     function updateHeader() {
       const scrollY = window.scrollY;
       header.classList.toggle("scrolled", scrollY > 60);
 
-      // Active nav link
       let current = "";
       sections.forEach((sec) => {
-        if (scrollY >= sec.offsetTop - 120) {
-          current = sec.getAttribute("id");
-        }
+        if (scrollY >= sec.offsetTop - 120) current = sec.getAttribute("id");
       });
       navLinks.forEach((a) => {
         a.classList.toggle("active", a.getAttribute("href") === "#" + current);
       });
 
-      lastScrollY = scrollY;
       ticking = false;
     }
 
@@ -119,7 +129,7 @@
       { passive: true },
     );
 
-    updateHeader(); // run once on load
+    updateHeader();
   }
 
   /* ─────────────────────────────────────────────────────────────────
@@ -140,7 +150,6 @@
       mobNav.classList.add("open");
       mobBtn.setAttribute("aria-expanded", "true");
       document.body.style.overflow = "hidden";
-      // Focus first link after transition
       setTimeout(() => focusable()[0]?.focus(), 100);
     }
 
@@ -151,18 +160,15 @@
       mobBtn.focus();
     }
 
-    // Expose globally for inline onclick handlers
     window.closeMobNav = closeNav;
 
     on(mobBtn, "click", openNav);
     on(mobClose, "click", closeNav);
 
-    // Escape key closes
     on(document, "keydown", (e) => {
       if (e.key === "Escape" && mobNav.classList.contains("open")) closeNav();
     });
 
-    // Focus trap
     on(mobNav, "keydown", (e) => {
       if (e.key !== "Tab") return;
       const els = focusable();
@@ -181,7 +187,6 @@
       }
     });
 
-    // Close on backdrop click
     on(mobNav, "click", (e) => {
       if (e.target === mobNav) closeNav();
     });
@@ -189,10 +194,8 @@
 
   /* ─────────────────────────────────────────────────────────────────
      4. SCROLL REVEAL — IntersectionObserver
-     Skips animation entirely on Save-Data or slow connections
   ─────────────────────────────────────────────────────────────────── */
   function initScrollReveal() {
-    // Immediately reveal on slow/save-data connections or no IO support
     const conn =
       navigator.connection ||
       navigator.mozConnection ||
@@ -207,17 +210,13 @@
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry, i) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Stagger siblings in same parent
             const siblings = qsa(".reveal", entry.target.parentElement);
             const idx = siblings.indexOf(entry.target);
             entry.target.style.transitionDelay = idx * 60 + "ms";
-
             entry.target.classList.add("visible");
             observer.unobserve(entry.target);
-
-            // Clear delay after animation
             setTimeout(
               () => {
                 entry.target.style.transitionDelay = "";
@@ -227,10 +226,7 @@
           }
         });
       },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -30px 0px",
-      },
+      { threshold: 0.08, rootMargin: "0px 0px -30px 0px" },
     );
 
     qsa(".reveal").forEach((el) => observer.observe(el));
@@ -259,13 +255,12 @@
           if (!entry.isIntersecting) return;
           const el = entry.target;
           const target = parseInt(el.dataset.target, 10);
-          const dur = 1200; // ms
+          const dur = 1200;
           const start = performance.now();
 
           function tick(now) {
             const elapsed = now - start;
             const progress = Math.min(elapsed / dur, 1);
-            // Ease out quart
             const eased = 1 - Math.pow(1 - progress, 4);
             el.textContent = Math.round(eased * target);
             if (progress < 1) requestAnimationFrame(tick);
@@ -284,14 +279,13 @@
 
   /* ─────────────────────────────────────────────────────────────────
      7. PARALLAX — subtle hero image drift on scroll
+     Uses translateY only; initial scale is handled by CSS transform-origin
+     so the image never downscales below 100% quality.
   ─────────────────────────────────────────────────────────────────── */
   function initParallax() {
     const heroImg = qs(".hero-img");
-    if (
-      !heroImg ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    )
-      return;
+    if (!heroImg) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (window.matchMedia("(max-width: 1024px)").matches) return;
 
     let ticking = false;
@@ -303,8 +297,7 @@
         if (!ticking) {
           requestAnimationFrame(() => {
             const scrollY = window.scrollY;
-            const offset = scrollY * 0.2;
-            heroImg.style.transform = `translateY(${offset}px) scale(1.05)`;
+            heroImg.style.transform = `translateY(${scrollY * 0.18}px)`;
             ticking = false;
           });
           ticking = true;
@@ -329,35 +322,7 @@
   }
 
   /* ─────────────────────────────────────────────────────────────────
-     9. PROJECT CARDS — magnetic tilt on mouse
-  ─────────────────────────────────────────────────────────────────── */
-  function initCardTilt() {
-    if (window.matchMedia("(hover: none)").matches) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    qsa(".project-card").forEach((card) => {
-      on(card, "mousemove", (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const cx = rect.width / 2;
-        const cy = rect.height / 2;
-        const rotateX = ((y - cy) / cy) * -4;
-        const rotateY = ((x - cx) / cx) * 4;
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
-      });
-      on(card, "mouseleave", () => {
-        card.style.transform = "";
-        card.style.transition = "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)";
-        setTimeout(() => {
-          card.style.transition = "";
-        }, 600);
-      });
-    });
-  }
-
-  /* ─────────────────────────────────────────────────────────────────
-     10. SMOOTH SCROLL — polyfill for nav anchors
+     9. SMOOTH SCROLL — polyfill for nav anchors
   ─────────────────────────────────────────────────────────────────── */
   function initSmoothScroll() {
     qsa('a[href^="#"]').forEach((anchor) => {
@@ -377,15 +342,13 @@
         const top = target.getBoundingClientRect().top + window.scrollY - navH;
 
         window.scrollTo({ top, behavior: "smooth" });
-
-        // Update URL without jumping
         history.pushState(null, "", id);
       });
     });
   }
 
   /* ─────────────────────────────────────────────────────────────────
-     11. PREFERS REDUCED MOTION guard
+     10. REDUCED MOTION guard — reveal all immediately if preferred
   ─────────────────────────────────────────────────────────────────── */
   function checkReducedMotion() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -394,7 +357,7 @@
   }
 
   /* ─────────────────────────────────────────────────────────────────
-     12. HERO IMAGE PARALLAX on device orientation (mobile)
+     11. GYRO PARALLAX — floating labels on mobile tilt
   ─────────────────────────────────────────────────────────────────── */
   function initGyroParallax() {
     if (!window.DeviceOrientationEvent) return;
@@ -404,7 +367,7 @@
       window,
       "deviceorientation",
       (e) => {
-        const tiltX = (e.gamma || 0) / 30; // -1 to 1
+        const tiltX = (e.gamma || 0) / 30;
         const tiltY = (e.beta || 0) / 30;
         qsa(".float-label").forEach((el, i) => {
           const depth = (i + 1) * 4;
@@ -416,7 +379,7 @@
   }
 
   /* ─────────────────────────────────────────────────────────────────
-     13. EMAIL COPY — click to copy email address
+     12. EMAIL COPY — right-click to copy email address
   ─────────────────────────────────────────────────────────────────── */
   function initEmailCopy() {
     const emailLink = qs(".contact-email-link");
@@ -439,8 +402,7 @@
   }
 
   /* ─────────────────────────────────────────────────────────────────
-     14. CURSOR RING EXPANSION — delegated via event bubbling
-     Only runs when has-custom-cursor is active (pointer devices)
+     13. CURSOR RING EXPANSION — expand ring on interactive elements
   ─────────────────────────────────────────────────────────────────── */
   function initCursorDelegation() {
     if (!document.documentElement.classList.contains("has-custom-cursor"))
@@ -469,23 +431,19 @@
   }
 
   /* ─────────────────────────────────────────────────────────────────
-     15. PAGE LOAD — remove initial paint block
+     14. PAGE LOAD — fade body in after load
   ─────────────────────────────────────────────────────────────────── */
   function initPageLoad() {
-    // Reveal body gracefully
     document.body.style.opacity = "0";
     document.body.style.transition = "opacity 0.4s ease";
     on(window, "load", () => {
       document.body.style.opacity = "1";
     });
-    // Fallback if load event already fired
-    if (document.readyState === "complete") {
-      document.body.style.opacity = "1";
-    }
+    if (document.readyState === "complete") document.body.style.opacity = "1";
   }
 
   /* ─────────────────────────────────────────────────────────────────
-     16. SCROLL PROGRESS BAR — drives ::after on #site-header
+     15. SCROLL PROGRESS BAR — drives ::after on #site-header
   ─────────────────────────────────────────────────────────────────── */
   function initScrollProgress() {
     const header = qs("#site-header");
@@ -517,6 +475,185 @@
   }
 
   /* ─────────────────────────────────────────────────────────────────
+     CHESS.COM LIVE STATS
+  ─────────────────────────────────────────────────────────────────── */
+  function initChessStats() {
+    const container = qs("#chessLiveStats");
+    const skeleton = qs("#chessSkeleton");
+    if (!container) return;
+
+    const FORMATS = [
+      { key: "chess_rapid", label: "Rapid" },
+      { key: "chess_blitz", label: "Blitz" },
+      { key: "chess_bullet", label: "Bullet" },
+    ];
+
+    fetch("https://api.chess.com/pub/player/srinath_kishore/stats", {
+      headers: { Accept: "application/json" },
+    })
+      .then((r) => {
+        if (!r.ok) throw new Error(r.status);
+        return r.json();
+      })
+      .then((data) => {
+        skeleton && skeleton.remove();
+
+        let totalGames = 0;
+        let totalWins = 0;
+        const formatRows = [];
+
+        FORMATS.forEach(({ key, label }) => {
+          const fmt = data[key];
+          if (!fmt || !fmt.last) return;
+          const rating = fmt.last.rating ?? "—";
+          const rec = fmt.record ?? {};
+          const wins = rec.win ?? 0;
+          const games = wins + (rec.loss ?? 0) + (rec.draw ?? 0);
+          totalGames += games;
+          totalWins += wins;
+          const row = document.createElement("div");
+          row.className = "chess-format-row";
+          row.innerHTML = `
+            <span class="chess-format-name">${label} RATING</span>
+            <span class="chess-format-rating">${rating}</span>
+            <span class="chess-format-record">
+              <span class="rec-wins">${wins} Wins</span>
+              <span class="rec-games"> / ${games} Games</span>
+            </span>`;
+          formatRows.push(row);
+        });
+
+        const hero = document.createElement("div");
+        hero.className = "chess-total-hero";
+        hero.innerHTML = `
+          <div class="chess-total-stat">
+            <span class="chess-total-num">${totalGames.toLocaleString()}</span>
+            <span class="chess-total-label">Total Games</span>
+          </div>
+          <div class="chess-total-stat chess-total-stat--wins">
+            <span class="chess-total-num chess-total-num--wins">${totalWins.toLocaleString()}</span>
+            <span class="chess-total-label">Wins</span>
+          </div>`;
+        container.appendChild(hero);
+
+        if (!formatRows.length) {
+          container.innerHTML += `<p style="font-size:0.8rem;color:var(--silver)">No game data yet.</p>`;
+          return;
+        }
+        formatRows.forEach((r) => container.appendChild(r));
+
+        const tactics = data.tactics;
+        if (tactics && tactics.highest) {
+          const pr = document.createElement("div");
+          pr.className = "chess-puzzle-row";
+          pr.innerHTML = `
+            <span class="chess-puzzle-label">Puzzle Rating</span>
+            <span class="chess-puzzle-rating">${tactics.highest.rating}</span>`;
+          container.appendChild(pr);
+        }
+      })
+      .catch(() => {
+        skeleton && skeleton.remove();
+        container.innerHTML = `
+          <div class="chess-format-row">
+            <span class="chess-format-icon">⏱</span>
+            <span class="chess-format-name">Rapid</span>
+            <span class="chess-format-rating" style="color:var(--silver);font-size:0.75rem">Active Player</span>
+          </div>
+          <p style="font-size:0.72rem;color:var(--silver);padding:var(--space-1) 0;opacity:0.55">
+            Live stats unavailable — visit profile for details.
+          </p>`;
+      });
+  }
+
+  /* ─────────────────────────────────────────────────────────────────
+   LEETCODE LIVE STATS
+   Renders a dashboard matching the chess stats format:
+   total solved hero + difficulty breakdown rows
+─────────────────────────────────────────────────────────────────── */
+  function initLeetCodeStats() {
+    const container = qs("#lcLiveStats");
+    const skeleton = qs("#lcSkeleton");
+    if (!container) return;
+
+    const STATIC = {
+      totalSolved: 621,
+      easySolved: 516,
+      totalEasy: 929,
+      mediumSolved: 96,
+      totalMedium: 2019,
+      hardSolved: 9,
+      totalHard: 912,
+      totalQuestions: 3860,
+      attempting: 15,
+      badges: 2,
+      ranking: null,
+      acceptanceRate: null,
+    };
+
+    function renderLCStats(d) {
+      skeleton && skeleton.remove();
+
+      const totalSolvedHero = document.createElement("div");
+      totalSolvedHero.className = "chess-total-hero";
+      totalSolvedHero.innerHTML = `
+      <div class="chess-total-stat">
+        <span class="chess-total-num">${d.totalSolved.toLocaleString()}</span>
+        <span class="chess-total-label">Total Problems Solved</span>
+      </div>`;
+      container.appendChild(totalSolvedHero);
+
+      const difficulties = [
+        {
+          label: "Easy",
+          solved: d.easySolved,
+          total: d.totalEasy,
+          color: "#00b8a3",
+        },
+        {
+          label: "Medium",
+          solved: d.mediumSolved,
+          total: d.totalMedium,
+          color: "#ffa116",
+        },
+        {
+          label: "Hard",
+          solved: d.hardSolved,
+          total: d.totalHard,
+          color: "#ff375f",
+        },
+      ];
+
+      difficulties.forEach(({ label, solved, total, color }) => {
+        const row = document.createElement("div");
+        row.className = "chess-format-row";
+        row.innerHTML = `
+        <span class="chess-format-name">${label}</span>
+        <span class="chess-format-rating" style="color: ${color}">${solved} / ${total}</span>`;
+        container.appendChild(row);
+      });
+
+      const bottomRow = document.createElement("div");
+      bottomRow.className = "chess-puzzle-row";
+      bottomRow.innerHTML = `
+      <span class="chess-puzzle-label">Attempting</span>
+      <span class="chess-puzzle-rating">${d.attempting || 15}</span>`;
+      container.appendChild(bottomRow);
+    }
+
+    fetch("https://leetcode-stats-api.herokuapp.com/user7929B")
+      .then((r) => {
+        if (!r.ok) throw new Error(r.status);
+        return r.json();
+      })
+      .then((data) => {
+        if (data.status !== "success") throw new Error("bad status");
+        renderLCStats({ ...STATIC, ...data });
+      })
+      .catch(() => renderLCStats(STATIC));
+  }
+
+  /* ─────────────────────────────────────────────────────────────────
      INIT — wire everything up
   ─────────────────────────────────────────────────────────────────── */
   function init() {
@@ -529,14 +666,14 @@
     initStatCounters();
     initParallax();
     initMarquees();
-    initCardTilt();
     initSmoothScroll();
     initGyroParallax();
     initEmailCopy();
     initScrollProgress();
     initCursorDelegation();
+    initChessStats();
+    initLeetCodeStats();
 
-    // Passive touch support (improves scroll performance on mobile)
     on(window, "touchstart", () => {}, { passive: true });
   }
 
