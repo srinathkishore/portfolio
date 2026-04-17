@@ -1,776 +1,1086 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <title>Srinath Kishore — AI Systems Engineer</title>
-    <meta name="description"
-        content="Srinath Kishore: Software engineer building CNN-powered medical screening tools and LLM-based enterprise automation on AWS. Specialist in AI systems, computer vision, and intelligent pipelines.">
-    <meta name="keywords"
-        content="AI engineer, machine learning, computer vision, CNN, LLM, RAG, Python, Django, AWS, portfolio">
-    <meta name="author" content="Srinath Kishore">
-    <meta name="theme-color" content="#080808">
-    <link rel="canonical" href="https://srinathkishore.github.io">
-
-    <meta property="og:title" content="Srinath Kishore — AI Systems Engineer">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://srinathkishore.github.io">
-    <meta property="og:image" content="assets/hero.png">
-    <meta property="og:description"
-        content="Software engineer specializing in AI systems, computer vision, and enterprise automation.">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Srinath Kishore — AI Systems Engineer">
-    <meta name="twitter:description"
-        content="Software engineer specializing in AI systems, computer vision, and enterprise automation.">
-    <meta name="twitter:image" content="assets/hero.png">
-
+    <meta
+      name="description"
+      content="Srinath Kishore: Software engineer building CNN-powered medical screening tools and LLM-based enterprise automation on AWS. Specialist in AI systems, computer vision, and intelligent pipelines."
+    />
+    <meta
+      name="keywords"
+      content="AI engineer, machine learning, computer vision, CNN, LLM, RAG, Python, Django, AWS, portfolio"
+    />
+    <meta name="author" content="Srinath Kishore" />
+    <meta name="theme-color" content="#080808" />
+    <link rel="canonical" href="https://srinathkishore.github.io" />
+    <meta property="og:title" content="Srinath Kishore — AI Systems Engineer" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://srinathkishore.github.io" />
+    <meta property="og:image" content="assets/hero.png" />
+    <meta
+      property="og:description"
+      content="Software engineer specializing in AI systems, computer vision, and enterprise automation."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Srinath Kishore — AI Systems Engineer"
+    />
+    <meta
+      name="twitter:description"
+      content="Software engineer specializing in AI systems, computer vision, and enterprise automation."
+    />
+    <meta name="twitter:image" content="assets/hero.png" />
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Srinath Kishore",
-      "url": "https://srinathkishore.dev",
-      "jobTitle": "Software Engineer",
-      "description": "Software engineer specializing in AI systems, computer vision, and enterprise automation.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Coimbatore",
-        "addressRegion": "Tamil Nadu",
-        "addressCountry": "IN"
-      },
-      "email": "mailto:srinathkishore.a@gmail.com",
-      "sameAs": [
-        "https://github.com/srinathkishore",
-        "https://linkedin.com/in/srinathkishore"
-      ]
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Srinath Kishore",
+        "url": "https://srinathkishore.dev",
+        "jobTitle": "Software Engineer",
+        "description": "Software engineer specializing in AI systems, computer vision, and enterprise automation.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Coimbatore",
+          "addressRegion": "Tamil Nadu",
+          "addressCountry": "IN"
+        },
+        "email": "mailto:srinathkishore.a@gmail.com",
+        "sameAs": [
+          "https://github.com/srinathkishore",
+          "https://linkedin.com/in/srinathkishore"
+        ]
+      }
     </script>
-
-    <link rel="dns-prefetch" href="https://images.unsplash.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-
-    <link rel="preload" as="image" href="assets/hero.png" fetchpriority="high">
-
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link
+      rel="preload"
+      as="image"
+      href="assets/hero.png"
+      fetchpriority="high"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <noscript>
+      <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap"
-        rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap"
-            rel="stylesheet">
+        rel="stylesheet"
+      />
     </noscript>
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <noscript>
-        <style>
-            .reveal {
-                opacity: 1;
-                transform: none
-            }
-        </style>
+      <style>
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      </style>
     </noscript>
-</head>
-
-<body>
+  </head>
+  <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
-
     <!-- Custom Cursor -->
     <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
     <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
-
     <!-- Mobile Navigation -->
-    <div class="mob-nav" id="mobNav" role="dialog" aria-modal="true" aria-label="Mobile menu">
-        <button class="mob-close" id="mobClose" aria-label="Close menu">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round">
-                <line x1="2" y1="2" x2="18" y2="18" />
-                <line x1="18" y1="2" x2="2" y2="18" />
-            </svg>
-        </button>
-        <nav class="mob-nav-links" aria-label="Mobile navigation">
-            <a href="#hero" class="mob-link" onclick="closeMobNav()"><span class="mob-num">01</span>Home</a>
-            <a href="#about" class="mob-link" onclick="closeMobNav()"><span class="mob-num">02</span>Story</a>
-            <a href="#work" class="mob-link" onclick="closeMobNav()"><span class="mob-num">03</span>Beyond Work</a>
-            <a href="#experience" class="mob-link" onclick="closeMobNav()"><span class="mob-num">04</span>Experience</a>
-            <a href="#skills" class="mob-link" onclick="closeMobNav()"><span class="mob-num">05</span>Skills</a>
-            <a href="#contact" class="mob-link" onclick="closeMobNav()"><span class="mob-num">06</span>Contact</a>
-        </nav>
+    <div
+      class="mob-nav"
+      id="mobNav"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile menu"
+    >
+      <button class="mob-close" id="mobClose" aria-label="Close menu">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        >
+          <line x1="2" y1="2" x2="18" y2="18" />
+          <line x1="18" y1="2" x2="2" y2="18" />
+        </svg>
+      </button>
+      <nav class="mob-nav-links" aria-label="Mobile navigation">
+        <a href="#hero" class="mob-link" onclick="closeMobNav()"
+          ><span class="mob-num">01</span>Home</a
+        >
+        <a href="#about" class="mob-link" onclick="closeMobNav()"
+          ><span class="mob-num">02</span>Story</a
+        >
+        <a href="#work" class="mob-link" onclick="closeMobNav()"
+          ><span class="mob-num">03</span>Beyond Work</a
+        >
+        <a href="#experience" class="mob-link" onclick="closeMobNav()"
+          ><span class="mob-num">04</span>Experience</a
+        >
+        <a href="#skills" class="mob-link" onclick="closeMobNav()"
+          ><span class="mob-num">05</span>Skills</a
+        >
+        <a href="#contact" class="mob-link" onclick="closeMobNav()"
+          ><span class="mob-num">06</span>Contact</a
+        >
+      </nav>
     </div>
-
     <!-- Header -->
     <header id="site-header" role="banner">
-        <a href="#hero" class="logo" aria-label="Srinath Kishore — Home">SK<em>.</em></a>
-        <nav aria-label="Primary navigation">
-            <a href="#about">Story</a>
-            <a href="#work">Beyond Work</a>
-            <a href="#experience">Experience</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-        </nav>
-        <div class="header-right">
-            <button class="mob-menu-btn" id="mobMenuBtn" aria-label="Open menu" aria-expanded="false">
-                <svg width="24" height="18" viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="1.5"
-                    stroke-linecap="round" aria-hidden="true">
-                    <line x1="0" y1="2" x2="24" y2="2" />
-                    <line x1="5" y1="9" x2="24" y2="9" />
-                    <line x1="0" y1="16" x2="24" y2="16" />
-                </svg>
-            </button>
-        </div>
+      <a href="#hero" class="logo" aria-label="Srinath Kishore — Home"
+        >SK<em>.</em></a
+      >
+      <nav aria-label="Primary navigation">
+        <a href="#about">Story</a>
+        <a href="#work">Beyond Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-right">
+        <button
+          class="mob-menu-btn"
+          id="mobMenuBtn"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          <svg
+            width="24"
+            height="18"
+            viewBox="0 0 24 18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <line x1="0" y1="2" x2="24" y2="2" />
+            <line x1="5" y1="9" x2="24" y2="9" />
+            <line x1="0" y1="16" x2="24" y2="16" />
+          </svg>
+        </button>
+      </div>
     </header>
-
     <main id="main-content">
-
-        <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
-        <section id="hero" aria-labelledby="hero-heading">
-            <div class="hero-grid">
-
-                <div class="hero-right">
-                    <div class="hero-img-wrap">
-                        <img src="assets/hero.png" alt="Srinath Kishore — AI Systems Engineer" class="hero-img"
-                            width="800" height="1000" fetchpriority="high" decoding="async"
-                            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 320px, 50vw">
-                    </div>
-                </div>
-
-                <div class="hero-left">
-                    <div class="hero-overline">
-                        <span class="overline-dot" aria-hidden="true"></span>
-                        <span>Srinath Kishore</span>
-                    </div>
-
-                    <h1 class="hero-h1" id="hero-heading">
-                        <span class="line" data-delay="0">I DESIGN</span>
-                        <span class="line accent" data-delay="80">DEVELOP</span>
-                        <span class="line" data-delay="160">DELIVER</span>
-                    </h1>
-
-                    <div class="hero-cta">
-                        <a href="#work" class="btn-primary">
-                            <span>Beyond Work</span>
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M3 8h10M9 4l4 4-4 4" />
-                            </svg>
-                        </a>
-                        <a href="#contact" class="btn-ghost">Let's talk →</a>
-                    </div>
-
-                    <div class="hero-stats" role="list">
-                        <div class="stat-card" role="listitem">
-                            <span class="stat-num" data-target="92">0</span><span class="stat-unit">%</span>
-                            <span class="stat-label">Model Accuracy</span>
-                        </div>
-                        <div class="stat-card" role="listitem">
-                            <span class="stat-num">1+</span>
-                            <span class="stat-label">Years Professional</span>
-                        </div>
-                        <div class="stat-card" role="listitem">
-                            <span class="stat-num">∞</span>
-                            <span class="stat-label">Problems Enjoyed</span>
-                        </div>
-                    </div>
-                </div>
-
+      <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+      <section id="hero" aria-labelledby="hero-heading">
+        <div class="hero-grid">
+          <div class="hero-right">
+            <div class="hero-img-wrap">
+              <img
+                src="assets/hero.png"
+                alt="Srinath Kishore — AI Systems Engineer"
+                class="hero-img"
+                width="800"
+                height="1000"
+                fetchpriority="high"
+                decoding="async"
+                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 320px, 50vw"
+              />
             </div>
-        </section>
-
-        <!-- ═══════════════════════════ ABOUT ═══════════════════════════ -->
-        <section id="about" aria-labelledby="about-heading">
-            <div class="about-grid">
-
-                <div class="about-visual">
-                    <div class="about-img-frame">
-                        <img src="assets/about.png" alt="Developer workspace: monitors with code, warm studio lighting"
-                            class="about-img" loading="lazy" decoding="async" width="900" height="1200"
-                            fetchpriority="low" sizes="(max-width: 1024px) 90vw, 45vw">
-                        <div class="about-visual-accent" aria-hidden="true">02</div>
-                        <div class="about-tag-wrap">
-                            <span class="about-tag">My Story</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="about-content">
-                    <div class="section-label reveal" aria-hidden="true">
-                        <span class="label-num">02</span>
-                        <span class="label-text">About</span>
-                        <span class="label-line"></span>
-                    </div>
-                    <h2 class="about-heading reveal" id="about-heading">
-                        Curiosity is the<br>most powerful<br><em>compiler.</em>
-                    </h2>
-                    <div class="about-body">
-                        <p class="reveal">Like many, I had countless ambitions growing up — cardiologist, Air Force
-                            pilot, even a full-time gaming streamer. <strong>Everything shifted</strong> when I
-                            discovered you could modify a phone's OS to improve gaming performance.</p>
-                        <p class="reveal">That single act of curiosity led me down a rabbit hole of understanding how
-                            machines think — and how to <strong>speak their language.</strong> Eventually that language
-                            became my craft.</p>
-                        <p class="reveal">When I build something, I pause and ask: <em>will this truly help
-                                someone?</em> If yes, it deserves to be the best version possible. No compromises.
-                            That's the standard I hold every line of code to.</p>
-                    </div>
-                </div>
+          </div>
+          <div class="hero-left">
+            <div class="hero-overline">
+              <span class="overline-dot" aria-hidden="true"></span>
+              <span>Srinath Kishore</span>
             </div>
-        </section>
-
-        <!-- ═══════════════════════════ HOBBIES ═══════════════════════════ -->
-        <section id="work" aria-labelledby="work-heading">
-            <div class="work-inner">
-                <div class="work-header">
-                    <div class="section-label reveal" aria-hidden="true">
-                        <span class="label-num">03</span>
-                        <span class="label-text">Beyond Work</span>
-                        <span class="label-line"></span>
-                    </div>
-                    <h2 class="work-headline reveal" id="work-heading"><em>BEYOND</em> WORK</h2>
-                    <p class="work-subline reveal">Outside of shipping code — the pursuits that keep me sharp, grounded,
-                        and always improving.</p>
-                </div>
-
-                <!-- Beyond Work Cards Grid -->
-                <div class="beyond-grid">
-
-                    <!-- Chess Card -->
-                    <article class="beyond-card chess-card reveal" aria-label="Chess profile" id="chessCard">
-                        <div class="beyond-card-img-wrap">
-                            <img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=800&auto=format&fit=crop&q=80"
-                                alt="Chess pieces on a board" class="beyond-card-img" loading="lazy" decoding="async">
-                        </div>
-                        <div class="beyond-card-header">
-                            <div class="beyond-icon chess-icon" aria-hidden="true">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-                                    <path
-                                        d="M9 22h6M8 22v-3h8v3M5 19h14M12 2v4M10 4h4M7 11V7h2V5h6v2h2v4l-2 3H9l-2-3z" />
-                                    <path d="M9 14v5M15 14v5" />
-                                </svg>
-                            </div>
-                            <div class="beyond-card-title-wrap">
-                                <h3 class="beyond-card-title">Chess</h3>
-                                <span class="beyond-card-platform">chess.com · srinath_kishore</span>
-                            </div>
-                            <a href="https://www.chess.com/member/srinath_kishore" target="_blank"
-                                rel="noopener noreferrer" class="beyond-card-link" aria-label="View chess.com profile">
-                                <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor"
-                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M2 10L10 2M10 2H4M10 2v6" />
-                                </svg>
-                            </a>
-                        </div>
-
-                        <div class="chess-live-stats" id="chessLiveStats">
-                            <div class="chess-skeleton" id="chessSkeleton">
-                                <div class="skel-row">
-                                    <div class="skel-block skel-wide"></div>
-                                    <div class="skel-block skel-narrow"></div>
-                                </div>
-                                <div class="skel-row">
-                                    <div class="skel-block skel-wide"></div>
-                                    <div class="skel-block skel-narrow"></div>
-                                </div>
-                                <div class="skel-row">
-                                    <div class="skel-block skel-wide"></div>
-                                    <div class="skel-block skel-narrow"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- LeetCode Card -->
-                    <article class="beyond-card leetcode-card reveal" aria-label="LeetCode profile">
-                        <div class="beyond-card-img-wrap">
-                            <img src="assets/leetcode.png" alt="Srinath Kishore Leetcode profile"
-                                class="beyond-card-img" loading="lazy" decoding="async">
-                        </div>
-                        <div class="beyond-card-header">
-                            <div class="beyond-icon leetcode-icon" aria-hidden="true">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-                                    <path
-                                        d="M16.102 17.93l-2.697 2.607c-.466.467-1.111.662-1.823.662s-1.357-.195-1.824-.662l-4.332-4.363c-.467-.467-.702-1.15-.702-1.863s.235-1.357.702-1.824l4.319-4.38c.467-.467 1.112-.661 1.824-.661s1.357.194 1.823.66l2.697 2.606c.514.515 1.111.759 1.823.77" />
-                                    <path
-                                        d="M20.811 7.432l-2.697-2.606c-.466-.467-1.111-.661-1.823-.661s-1.357.194-1.824.661" />
-                                    <line x1="7" y1="12" x2="17" y2="12" />
-                                </svg>
-                            </div>
-                            <div class="beyond-card-title-wrap">
-                                <h3 class="beyond-card-title">LeetCode</h3>
-                                <span class="beyond-card-platform">leetcode.com · user7929B</span>
-                            </div>
-                            <a href="https://leetcode.com/u/user7929B/" target="_blank" rel="noopener noreferrer"
-                                class="beyond-card-link" aria-label="View LeetCode profile">
-                                <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor"
-                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M2 10L10 2M10 2H4M10 2v6" />
-                                </svg>
-                            </a>
-                        </div>
-
-                        <!-- Stats populated by JS -->
-                        <div class="lc-live-stats" id="lcLiveStats">
-                            <div class="chess-skeleton" id="lcSkeleton">
-                                <div class="skel-row">
-                                    <div class="skel-block skel-wide"></div>
-                                    <div class="skel-block skel-narrow"></div>
-                                </div>
-                                <div class="skel-row">
-                                    <div class="skel-block skel-wide"></div>
-                                    <div class="skel-block skel-narrow"></div>
-                                </div>
-                                <div class="skel-row">
-                                    <div class="skel-block" style="width:60%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Fitness Card -->
-                    <article class="beyond-card fitness-card reveal" aria-label="Fitness and running">
-                        <div class="beyond-card-img-wrap">
-                            <img src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=800&auto=format&fit=crop&q=80"
-                                alt="Runner on a road at sunrise" class="beyond-card-img" loading="lazy"
-                                decoding="async">
-                        </div>
-                        <div class="beyond-card-header">
-                            <div class="beyond-icon fitness-icon" aria-hidden="true">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M13 4a1 1 0 1 1 2 0 1 1 0 0 1-2 0z" />
-                                    <path d="M5 17l2-6 3 2 2-4 3 2 2-5" />
-                                    <path d="M3 20h18" />
-                                </svg>
-                            </div>
-                            <div class="beyond-card-title-wrap">
-                                <h3 class="beyond-card-title">Fitness</h3>
-                                <span class="beyond-card-platform">Running · Gym · Marathons</span>
-                            </div>
-                            <div class="fitness-strava-badge">
-                                <span>Half Marathon Soon</span>
-                            </div>
-                        </div>
-
-                        <div class="fitness-pbs">
-                            <div class="fitness-pb-card">
-                                <div class="fitness-pb-distance">5K</div>
-                                <div class="fitness-pb-time">30:26</div>
-                                <div class="fitness-pb-pace">
-                                    <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor"
-                                        stroke-width="1.5" stroke-linecap="round">
-                                        <circle cx="8" cy="8" r="6" />
-                                        <path d="M8 5v4l2 2" />
-                                    </svg>
-                                    6:03 / km
-                                </div>
-                                <span class="fitness-pb-label">Personal Best</span>
-                            </div>
-                            <div class="fitness-pb-divider" aria-hidden="true"></div>
-                            <div class="fitness-pb-card">
-                                <div class="fitness-pb-distance">10K</div>
-                                <div class="fitness-pb-time">81:02</div>
-                                <div class="fitness-pb-pace">
-                                    <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor"
-                                        stroke-width="1.5" stroke-linecap="round">
-                                        <circle cx="8" cy="8" r="6" />
-                                        <path d="M8 5v4l2 2" />
-                                    </svg>
-                                    8:06 / km
-                                </div>
-                                <span class="fitness-pb-label">Personal Best</span>
-                            </div>
-                        </div>
-
-                        <div class="fitness-routine">
-                            <div class="fitness-routine-row">
-                                <div class="fitness-activity">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ember)"
-                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M13 4a1 1 0 1 1 2 0 1 1 0 0 1-2 0z" />
-                                        <path d="M5.5 21l2.5-7 3 2 2-5 2 2 2-5" />
-                                    </svg>
-                                    <span>Road Running</span>
-                                </div>
-                                <div class="fitness-activity">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ember)"
-                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M6 4v16M18 4v16M6 12h12" />
-                                        <rect x="2" y="2" width="6" height="6" rx="1" />
-                                        <rect x="16" y="2" width="6" height="6" rx="1" />
-                                        <rect x="2" y="16" width="6" height="6" rx="1" />
-                                        <rect x="16" y="16" width="6" height="6" rx="1" />
-                                    </svg>
-                                    <span>Weight Training</span>
-                                </div>
-                                <div class="fitness-activity">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ember)"
-                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M12 22V12M12 12L8 8M12 12L16 8" />
-                                        <path d="M5 6a7 7 0 0 1 14 0" />
-                                    </svg>
-                                    <span>Marathon Prep</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                </div>
+            <h1 class="hero-h1" id="hero-heading">
+              <span class="line" data-delay="0">I DESIGN</span>
+              <span class="line accent" data-delay="80">DEVELOP</span>
+              <span class="line" data-delay="160">DELIVER</span>
+            </h1>
+            <div class="hero-cta">
+              <a href="#work" class="btn-primary">
+                <span>Beyond Work</span>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M3 8h10M9 4l4 4-4 4" />
+                </svg>
+              </a>
+              <a href="#contact" class="btn-ghost">Let's talk →</a>
             </div>
-        </section>
-
-        <!-- ═══════════════════════════ EXPERIENCE ═══════════════════════════ -->
-        <section id="experience" aria-labelledby="exp-heading">
-            <div class="exp-bg-text" aria-hidden="true">EXP</div>
-            <div class="exp-inner">
-
-                <div class="exp-left">
-                    <div class="section-label reveal" aria-hidden="true">
-                        <span class="label-num">04</span>
-                        <span class="label-text">Experience</span>
-                        <span class="label-line"></span>
-                    </div>
-                    <h2 class="exp-headline reveal" id="exp-heading">WHERE<br><em>I'VE</em>WORKED</h2>
-                    <p class="exp-philosophy reveal">Enterprise AI systems, RAG pipelines, and automation that moves
-                        real business. Built with precision, deployed at scale, validated by clients.</p>
-                </div>
-
-                <div class="exp-timeline" role="list" aria-label="Work experience">
-
-                    <article class="exp-item reveal" role="listitem">
-                        <div class="exp-connector" aria-hidden="true"><span></span></div>
-                        <div class="exp-content">
-                            <div class="exp-meta">
-                                <div class="exp-role-wrap">
-                                    <h3 class="exp-role">Software Engineer</h3>
-                                    <span class="exp-company">Greeno Tech Solutions</span>
-                                </div>
-                                <div class="exp-period-wrap">
-                                    <time class="exp-period" datetime="2024-06">June 2024</time>
-                                    <span class="exp-period-sep" aria-hidden="true">→</span>
-                                    <span class="exp-period">Present</span>
-                                    <span class="exp-badge">Current</span>
-                                </div>
-                            </div>
-                            <div class="exp-body">
-                                <p>
-                                    Contributing to the R&D of enterprise AI systems and intelligent assistants aimed at
-                                    automating complex business workflows. Designing and refining <em>LLM-based RAG
-                                        pipelines</em>
-                                    with role-based access controls to support use cases across HR, payroll, and supply
-                                    chain operations.
-                                </p>
-                                <p>
-                                    Developing backend services using <em>Python and Django</em>, building automation
-                                    logic, and preparing system designs and implementation reports. Regularly reviewing
-                                    progress with the project manager and reporting updates, architecture decisions, and
-                                    implementation outcomes. AI solutions are periodically showcased
-                                    to clients through demos to demonstrate capabilities and gather feedback during the
-                                    development phase.
-                                </p>
-                                <p>
-                                    Working as a <em>technical ERP resource</em> handling Infor Process Automation
-                                    (IPA) workflows and assisting with Infor Cloudsuite ERP configurations, bridging the gap
-                                    between AI development and enterprise operations.
-                                </p>
-                            </div>
-                            <div class="exp-tech" aria-label="Technologies used">
-                                <span class="exp-tech-item">Python</span>
-                                <span class="exp-tech-item">Django</span>
-                                <span class="exp-tech-item">LLM</span>
-                                <span class="exp-tech-item">RAG</span>
-                                <span class="exp-tech-item">AWS</span>
-                                <span class="exp-tech-item">REST APIs</span>
-                                <span class="exp-tech-item">PostgreSQL</span>
-                                <span class="exp-tech-item">Vector DBs</span>
-                                <span class="exp-tech-item">Infor Cloudsuite</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+            <div class="hero-stats" role="list">
+              <div class="stat-card" role="listitem">
+                <span class="stat-num" data-target="92">0</span
+                ><span class="stat-unit">%</span>
+                <span class="stat-label">Model Accuracy</span>
+              </div>
+              <div class="stat-card" role="listitem">
+                <span class="stat-num">1+</span>
+                <span class="stat-label">Years Professional</span>
+              </div>
+              <div class="stat-card" role="listitem">
+                <span class="stat-num">∞</span>
+                <span class="stat-label">Problems Enjoyed</span>
+              </div>
             </div>
-
-            <div class="tech-strip" aria-hidden="true">
-                <div class="tech-strip-inner">
-                    <span class="ts-item">Python · Django</span>
-                    <span class="ts-dot">✦</span>
-                    <span class="ts-item">LLM · RAG</span>
-                    <span class="ts-dot">✦</span>
-                    <span class="ts-item">AWS Cloud</span>
-                    <span class="ts-dot">✦</span>
-                    <span class="ts-item">Computer Vision</span>
-                    <span class="ts-dot">✦</span>
-                    <span class="ts-item">CNN · PyTorch</span>
-                    <span class="ts-dot">✦</span>
-                    <span class="ts-item">REST APIs</span>
-                    <span class="ts-dot">✦</span>
-                    <span class="ts-item">Automation</span>
-                    <span class="ts-dot">✦</span>
-                    <span class="ts-item">Python · Django</span>
-                    <span class="ts-dot">✦</span>
-                    <span class="ts-item">LLM · RAG</span>
-                    <span class="ts-dot">✦</span>
-                    <span class="ts-item">AWS Cloud</span>
-                    <span class="ts-dot">✦</span>
-                    <span class="ts-item">Computer Vision</span>
-                    <span class="ts-dot">✦</span>
-                    <span class="ts-item">CNN · PyTorch</span>
-                    <span class="ts-dot">✦</span>
-                    <span class="ts-item">REST APIs</span>
-                    <span class="ts-dot">✦</span>
-                    <span class="ts-item">Automation</span>
-                    <span class="ts-dot">✦</span>
-                </div>
+          </div>
+        </div>
+      </section>
+      <!-- ═══════════════════════════ ABOUT ═══════════════════════════ -->
+      <section id="about" aria-labelledby="about-heading">
+        <div class="about-grid">
+          <div class="about-visual">
+            <div class="about-img-frame">
+              <img
+                src="assets/about.png"
+                alt="Developer workspace: monitors with code, warm studio lighting"
+                class="about-img"
+                loading="lazy"
+                decoding="async"
+                width="900"
+                height="1200"
+                fetchpriority="low"
+                sizes="(max-width: 1024px) 90vw, 45vw"
+              />
+              <div class="about-visual-accent" aria-hidden="true">02</div>
+              <div class="about-tag-wrap">
+                <span class="about-tag">My Story</span>
+              </div>
             </div>
-        </section>
-
-        <!-- ═══════════════════════════ SKILLS ═══════════════════════════ -->
-        <section id="skills" aria-labelledby="skills-heading">
-            <div class="skills-inner">
-                <div class="skills-top">
-                    <div class="section-label reveal" aria-hidden="true">
-                        <span class="label-num">05</span>
-                        <span class="label-text">Skills</span>
-                        <span class="label-line"></span>
-                    </div>
-                    <div class="skills-header">
-                        <h2 class="skills-headline reveal" id="skills-heading">BUILT<br><em>WITH</em></h2>
-                        <p class="skills-copy reveal">A working toolkit shaped by real projects — not checkbox skills.
-                            Every entry earned by shipping things that had to work under real-world pressure.</p>
-                    </div>
-                </div>
-
-                <div class="skills-grid" role="list" aria-label="Skill categories">
-                    <div class="skill-category reveal" role="listitem">
-                        <div class="sc-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="10" cy="10" r="3" />
-                                <path
-                                    d="M10 2v2M10 16v2M2 10h2M16 10h2M4.22 4.22l1.42 1.42M14.36 14.36l1.42 1.42M4.22 15.78l1.42-1.42M14.36 5.64l1.42-1.42" />
-                            </svg>
-                        </div>
-                        <h3 class="sc-title">AI / ML</h3>
-                        <ul class="sc-list" role="list">
-                            <li>PyTorch</li>
-                            <li>TensorFlow</li>
-                            <li>Scikit-learn</li>
-                            <li>HuggingFace</li>
-                            <li>LangChain</li>
-                            <li>OpenCV</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category reveal" role="listitem">
-                        <div class="sc-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="3" width="16" height="14" rx="2" />
-                                <path d="M7 7l3 3-3 3M11 13h2" />
-                            </svg>
-                        </div>
-                        <h3 class="sc-title">Backend</h3>
-                        <ul class="sc-list" role="list">
-                            <li>Python</li>
-                            <li>Django</li>
-                            <li>FastAPI</li>
-                            <li>REST APIs</li>
-                            <li>PostgreSQL</li>
-                            <li>Redis</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category reveal" role="listitem">
-                        <div class="sc-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M3 6l7-4 7 4v8l-7 4-7-4z" />
-                                <path d="M10 2v18M3 6l7 4 7-4" />
-                            </svg>
-                        </div>
-                        <h3 class="sc-title">Infrastructure</h3>
-                        <ul class="sc-list" role="list">
-                            <li>AWS</li>
-                            <li>Docker</li>
-                            <li>Linux</li>
-                            <li>CI/CD</li>
-                            <li>Git</li>
-                            <li>Vector DBs</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category reveal" role="listitem">
-                        <div class="sc-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M2 10h16M2 5h16M2 15h10" />
-                            </svg>
-                        </div>
-                        <h3 class="sc-title">Data & Analysis</h3>
-                        <ul class="sc-list" role="list">
-                            <li>NumPy</li>
-                            <li>Pandas</li>
-                            <li>Matplotlib</li>
-                            <li>RAG Pipelines</li>
-                            <li>Embedding Models</li>
-                            <li>Fine-tuning</li>
-                        </ul>
-                    </div>
-                </div>
+          </div>
+          <div class="about-content">
+            <div class="section-label reveal" aria-hidden="true">
+              <span class="label-num">02</span>
+              <span class="label-text">About</span>
+              <span class="label-line"></span>
             </div>
-
-            <div class="marquee-container" aria-hidden="true">
-                <div class="marquee-wrap">
-                    <div class="marquee">
-                        <span class="mpill">Python</span><span class="mpill">Django</span><span
-                            class="mpill">PyTorch</span><span class="mpill">TensorFlow</span><span
-                            class="mpill">Computer Vision</span><span class="mpill">CNN</span><span
-                            class="mpill">LLM</span><span class="mpill">RAG</span><span class="mpill">AWS</span><span
-                            class="mpill">REST APIs</span><span class="mpill">PostgreSQL</span><span
-                            class="mpill">Docker</span>
-                        <span class="mpill">Python</span><span class="mpill">Django</span><span
-                            class="mpill">PyTorch</span><span class="mpill">TensorFlow</span><span
-                            class="mpill">Computer Vision</span><span class="mpill">CNN</span><span
-                            class="mpill">LLM</span><span class="mpill">RAG</span><span class="mpill">AWS</span><span
-                            class="mpill">REST APIs</span><span class="mpill">PostgreSQL</span><span
-                            class="mpill">Docker</span>
-                    </div>
-                </div>
-                <div class="marquee-wrap marquee-wrap--reverse">
-                    <div class="marquee marquee--rev">
-                        <span class="mpill">OpenCV</span><span class="mpill">LangChain</span><span
-                            class="mpill">FastAPI</span><span class="mpill">Redis</span><span
-                            class="mpill">Git</span><span class="mpill">Linux</span><span
-                            class="mpill">NumPy</span><span class="mpill">Pandas</span><span
-                            class="mpill">Scikit-learn</span><span class="mpill">HuggingFace</span><span
-                            class="mpill">Vector DBs</span><span class="mpill">CI/CD</span>
-                        <span class="mpill">OpenCV</span><span class="mpill">LangChain</span><span
-                            class="mpill">FastAPI</span><span class="mpill">Redis</span><span
-                            class="mpill">Git</span><span class="mpill">Linux</span><span
-                            class="mpill">NumPy</span><span class="mpill">Pandas</span><span
-                            class="mpill">Scikit-learn</span><span class="mpill">HuggingFace</span><span
-                            class="mpill">Vector DBs</span><span class="mpill">CI/CD</span>
-                    </div>
-                </div>
+            <h2 class="about-heading reveal" id="about-heading">
+              Curiosity is the<br />most powerful<br /><em>compiler.</em>
+            </h2>
+            <div class="about-body">
+              <p class="reveal">
+                Like many, I had countless ambitions growing up — cardiologist,
+                Air Force pilot, even a full-time gaming streamer.
+                <strong>Everything shifted</strong> when I discovered you could
+                modify a phone's OS to improve gaming performance.
+              </p>
+              <p class="reveal">
+                That single act of curiosity led me down a rabbit hole of
+                understanding how machines think — and how to
+                <strong>speak their language.</strong> Eventually that language
+                became my craft.
+              </p>
+              <p class="reveal">
+                When I build something, I pause and ask:
+                <em>will this truly help someone?</em> If yes, it deserves to be
+                the best version possible. No compromises. That's the standard I
+                hold every line of code to.
+              </p>
             </div>
-        </section>
-
-        <!-- ═══════════════════════════ CONTACT ═══════════════════════════ -->
-        <section id="contact" aria-labelledby="contact-heading">
-            <div class="contact-inner">
-
-                <div class="contact-left">
-                    <div class="section-label reveal" aria-hidden="true">
-                        <span class="label-num">06</span>
-                        <span class="label-text">Contact</span>
-                        <span class="label-line"></span>
-                    </div>
-                    <h2 class="contact-headline reveal" id="contact-heading">
-                        LET'S<br><em>TALK.</em>
-                    </h2>
-                    <p class="contact-sub reveal">Whether it's a collaboration, opportunity, or an idea too big to
-                        ignore — I'm interested. Reach out directly.</p>
-
-                    <div class="contact-availability reveal">
-                        <span class="avail-dot" aria-hidden="true"></span>
-                        <span>Open to opportunities &amp; freelance work</span>
-                    </div>
-
-                    <a href="mailto:srinathkishore.a@gmail.com" class="contact-email-link reveal"
-                        aria-label="Send email to Srinath Kishore">
-                        srinathkishore.a@gmail.com
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
-                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M4 4h12l-6 7-6-7zM4 4v9a1 1 0 001 1h10a1 1 0 001-1V4" />
-                        </svg>
-                    </a>
-                </div>
-
-                <div class="contact-right">
-                    <div class="contact-details">
-                        <div class="contact-item reveal">
-                            <span class="contact-item-label">Location</span>
-                            <span class="contact-item-value">Coimbatore, Tamil Nadu, India</span>
-                        </div>
-                        <div class="contact-item reveal">
-                            <span class="contact-item-label">GitHub</span>
-                            <a href="https://github.com/srinathkishore" target="_blank" rel="noopener noreferrer"
-                                class="contact-item-value contact-item-link">
-                                github.com/srinathkishore
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"
-                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                                    aria-hidden="true">
-                                    <path d="M2 10L10 2M10 2H4M10 2v6" />
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="contact-item reveal">
-                            <span class="contact-item-label">LinkedIn</span>
-                            <a href="https://linkedin.com/in/srinathkishore" target="_blank" rel="noopener noreferrer"
-                                class="contact-item-value contact-item-link">
-                                linkedin.com/in/srinathkishore
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"
-                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                                    aria-hidden="true">
-                                    <path d="M2 10L10 2M10 2H4M10 2v6" />
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="contact-item reveal">
-                            <span class="contact-item-label">Leetcode</span>
-                            <a href="https://leetcode.com/u/user7929B/" target="_blank" rel="noopener noreferrer"
-                                class="contact-item-value contact-item-link">
-                                leetcode.com/u/user7929B/
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"
-                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                                    aria-hidden="true">
-                                    <path d="M2 10L10 2M10 2H4M10 2v6" />
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="contact-item reveal">
-                            <span class="contact-item-label">Chess.com</span>
-                            <a href="https://chess.com/member/srinath_kishore" target="_blank" rel="noopener noreferrer"
-                                class="contact-item-value contact-item-link">
-                                chess.com/srinath_kishore
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"
-                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                                    aria-hidden="true">
-                                    <path d="M2 10L10 2M10 2H4M10 2v6" />
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="contact-item reveal">
-                            <span class="contact-item-label">Resume</span>
-                            <a href="assets/srinath-kishore-resume.pdf" class="contact-item-value contact-item-link"
-                                download>
-                                Download PDF
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"
-                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                                    aria-hidden="true">
-                                    <path d="M6 2v6M3 6l3 3 3-3M2 10h8" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+          </div>
+        </div>
+      </section>
+      <!-- ═══════════════════════════ HOBBIES ═══════════════════════════ -->
+      <section id="work" aria-labelledby="work-heading">
+        <div class="work-inner">
+          <div class="work-header">
+            <div class="section-label reveal" aria-hidden="true">
+              <span class="label-num">03</span>
+              <span class="label-text">Beyond Work</span>
+              <span class="label-line"></span>
             </div>
-
-            <footer class="site-footer" role="contentinfo">
-                <span class="footer-copy">© 2026 Srinath Kishore</span>
-                <span class="footer-tagline"><em>systems &amp; intelligence</em></span>
-                <span class="footer-location">Coimbatore, Tamil Nadu</span>
-            </footer>
-        </section>
-
+            <h2 class="work-headline reveal" id="work-heading">
+              <em>BEYOND</em> WORK
+            </h2>
+            <p class="work-subline reveal">
+              Outside of shipping code — the pursuits that keep me sharp,
+              grounded, and always improving.
+            </p>
+          </div>
+          <!-- Beyond Work Cards Grid -->
+          <div class="beyond-grid">
+            <!-- Chess Card -->
+            <article
+              class="beyond-card chess-card reveal"
+              aria-label="Chess profile"
+              id="chessCard"
+            >
+              <div class="beyond-card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=800&auto=format&fit=crop&q=80"
+                  alt="Chess pieces on a board"
+                  class="beyond-card-img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="beyond-card-header">
+                <div class="beyond-icon chess-icon" aria-hidden="true">
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M9 22h6M8 22v-3h8v3M5 19h14M12 2v4M10 4h4M7 11V7h2V5h6v2h2v4l-2 3H9l-2-3z"
+                    />
+                    <path d="M9 14v5M15 14v5" />
+                  </svg>
+                </div>
+                <div class="beyond-card-title-wrap">
+                  <h3 class="beyond-card-title">Chess</h3>
+                  <span class="beyond-card-platform"
+                    >chess.com · srinath_kishore</span
+                  >
+                </div>
+                <a
+                  href="https://www.chess.com/member/srinath_kishore"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="beyond-card-link"
+                  aria-label="View chess.com profile"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M2 10L10 2M10 2H4M10 2v6" />
+                  </svg>
+                </a>
+              </div>
+              <div class="chess-live-stats" id="chessLiveStats">
+                <div class="chess-skeleton" id="chessSkeleton">
+                  <div class="skel-row">
+                    <div class="skel-block skel-wide"></div>
+                    <div class="skel-block skel-narrow"></div>
+                  </div>
+                  <div class="skel-row">
+                    <div class="skel-block skel-wide"></div>
+                    <div class="skel-block skel-narrow"></div>
+                  </div>
+                  <div class="skel-row">
+                    <div class="skel-block skel-wide"></div>
+                    <div class="skel-block skel-narrow"></div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <!-- LeetCode Card -->
+            <article
+              class="beyond-card leetcode-card reveal"
+              aria-label="LeetCode profile"
+            >
+              <div class="beyond-card-img-wrap">
+                <img
+                  src="assets/leetcode.png"
+                  alt="Srinath Kishore Leetcode profile"
+                  class="beyond-card-img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="beyond-card-header">
+                <div class="beyond-icon leetcode-icon" aria-hidden="true">
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M16.102 17.93l-2.697 2.607c-.466.467-1.111.662-1.823.662s-1.357-.195-1.824-.662l-4.332-4.363c-.467-.467-.702-1.15-.702-1.863s.235-1.357.702-1.824l4.319-4.38c.467-.467 1.112-.661 1.824-.661s1.357.194 1.823.66l2.697 2.606c.514.515 1.111.759 1.823.77"
+                    />
+                    <path
+                      d="M20.811 7.432l-2.697-2.606c-.466-.467-1.111-.661-1.823-.661s-1.357.194-1.824.661"
+                    />
+                    <line x1="7" y1="12" x2="17" y2="12" />
+                  </svg>
+                </div>
+                <div class="beyond-card-title-wrap">
+                  <h3 class="beyond-card-title">LeetCode</h3>
+                  <span class="beyond-card-platform"
+                    >leetcode.com · user7929B</span
+                  >
+                </div>
+                <a
+                  href="https://leetcode.com/u/user7929B/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="beyond-card-link"
+                  aria-label="View LeetCode profile"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M2 10L10 2M10 2H4M10 2v6" />
+                  </svg>
+                </a>
+              </div>
+              <!-- Stats populated by JS -->
+              <div class="lc-live-stats" id="lcLiveStats">
+                <div class="chess-skeleton" id="lcSkeleton">
+                  <div class="skel-row">
+                    <div class="skel-block skel-wide"></div>
+                    <div class="skel-block skel-narrow"></div>
+                  </div>
+                  <div class="skel-row">
+                    <div class="skel-block skel-wide"></div>
+                    <div class="skel-block skel-narrow"></div>
+                  </div>
+                  <div class="skel-row">
+                    <div class="skel-block" style="width: 60%"></div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <!-- Fitness Card -->
+            <article
+              class="beyond-card fitness-card reveal"
+              aria-label="Fitness and running"
+            >
+              <div class="beyond-card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=800&auto=format&fit=crop&q=80"
+                  alt="Runner on a road at sunrise"
+                  class="beyond-card-img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="beyond-card-header">
+                <div class="beyond-icon fitness-icon" aria-hidden="true">
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M13 4a1 1 0 1 1 2 0 1 1 0 0 1-2 0z" />
+                    <path d="M5 17l2-6 3 2 2-4 3 2 2-5" />
+                    <path d="M3 20h18" />
+                  </svg>
+                </div>
+                <div class="beyond-card-title-wrap">
+                  <h3 class="beyond-card-title">Fitness</h3>
+                  <span class="beyond-card-platform"
+                    >Running · Gym · Marathons</span
+                  >
+                </div>
+                <div class="fitness-strava-badge">
+                  <span>Half Marathon Soon</span>
+                </div>
+              </div>
+              <div class="fitness-pbs">
+                <div class="fitness-pb-card">
+                  <div class="fitness-pb-distance">5K</div>
+                  <div class="fitness-pb-time">30:26</div>
+                  <div class="fitness-pb-pace">
+                    <svg
+                      width="11"
+                      height="11"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    >
+                      <circle cx="8" cy="8" r="6" />
+                      <path d="M8 5v4l2 2" />
+                    </svg>
+                    6:03 / km
+                  </div>
+                  <span class="fitness-pb-label">Personal Best</span>
+                </div>
+                <div class="fitness-pb-divider" aria-hidden="true"></div>
+                <div class="fitness-pb-card">
+                  <div class="fitness-pb-distance">10K</div>
+                  <div class="fitness-pb-time">81:02</div>
+                  <div class="fitness-pb-pace">
+                    <svg
+                      width="11"
+                      height="11"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    >
+                      <circle cx="8" cy="8" r="6" />
+                      <path d="M8 5v4l2 2" />
+                    </svg>
+                    8:06 / km
+                  </div>
+                  <span class="fitness-pb-label">Personal Best</span>
+                </div>
+              </div>
+              <div class="fitness-routine">
+                <div class="fitness-routine-row">
+                  <div class="fitness-activity">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--ember)"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M13 4a1 1 0 1 1 2 0 1 1 0 0 1-2 0z" />
+                      <path d="M5.5 21l2.5-7 3 2 2-5 2 2 2-5" />
+                    </svg>
+                    <span>Road Running</span>
+                  </div>
+                  <div class="fitness-activity">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--ember)"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M6 4v16M18 4v16M6 12h12" />
+                      <rect x="2" y="2" width="6" height="6" rx="1" />
+                      <rect x="16" y="2" width="6" height="6" rx="1" />
+                      <rect x="2" y="16" width="6" height="6" rx="1" />
+                      <rect x="16" y="16" width="6" height="6" rx="1" />
+                    </svg>
+                    <span>Weight Training</span>
+                  </div>
+                  <div class="fitness-activity">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--ember)"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M12 22V12M12 12L8 8M12 12L16 8" />
+                      <path d="M5 6a7 7 0 0 1 14 0" />
+                    </svg>
+                    <span>Marathon Prep</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- ═══════════════════════════ EXPERIENCE ═══════════════════════════ -->
+      <section id="experience" aria-labelledby="exp-heading">
+        <div class="exp-bg-text" aria-hidden="true">EXP</div>
+        <div class="exp-inner">
+          <div class="exp-left">
+            <div class="section-label reveal" aria-hidden="true">
+              <span class="label-num">04</span>
+              <span class="label-text">Experience</span>
+              <span class="label-line"></span>
+            </div>
+            <h2 class="exp-headline reveal" id="exp-heading">
+              WHERE<br /><em>I'VE</em>WORKED
+            </h2>
+            <p class="exp-philosophy reveal">
+              Enterprise AI systems, RAG pipelines, and automation that moves
+              real business. Built with precision, deployed at scale, validated
+              by clients.
+            </p>
+          </div>
+          <div class="exp-timeline" role="list" aria-label="Work experience">
+            <article class="exp-item reveal" role="listitem">
+              <div class="exp-connector" aria-hidden="true"><span></span></div>
+              <div class="exp-content">
+                <div class="exp-meta">
+                  <div class="exp-role-wrap">
+                    <h3 class="exp-role">Software Engineer</h3>
+                    <span class="exp-company">Greeno Tech Solutions</span>
+                  </div>
+                  <div class="exp-period-wrap">
+                    <time class="exp-period" datetime="2024-06">June 2024</time>
+                    <span class="exp-period-sep" aria-hidden="true">→</span>
+                    <span class="exp-period">Present</span>
+                    <span class="exp-badge">Current</span>
+                  </div>
+                </div>
+                <div class="exp-body">
+                  <p>
+                    Contributing to the R&D of enterprise AI systems and
+                    intelligent assistants aimed at automating complex business
+                    workflows. Designing and refining
+                    <em>LLM-based RAG pipelines</em>
+                    with role-based access controls to support use cases across
+                    HR, payroll, and supply chain operations.
+                  </p>
+                  <p>
+                    Developing backend services using
+                    <em>Python and Django</em>, building automation logic, and
+                    preparing system designs and implementation reports.
+                    Regularly reviewing progress with the project manager and
+                    reporting updates, architecture decisions, and
+                    implementation outcomes. AI solutions are periodically
+                    showcased to clients through demos to demonstrate
+                    capabilities and gather feedback during the development
+                    phase.
+                  </p>
+                  <p>
+                    Working as a <em>technical ERP resource</em> handling Infor
+                    Process Automation (IPA) workflows and assisting with Infor
+                    Cloudsuite ERP configurations, bridging the gap between AI
+                    development and enterprise operations.
+                  </p>
+                </div>
+                <div class="exp-tech" aria-label="Technologies used">
+                  <span class="exp-tech-item">Python</span>
+                  <span class="exp-tech-item">Django</span>
+                  <span class="exp-tech-item">LLM</span>
+                  <span class="exp-tech-item">RAG</span>
+                  <span class="exp-tech-item">AWS</span>
+                  <span class="exp-tech-item">REST APIs</span>
+                  <span class="exp-tech-item">PostgreSQL</span>
+                  <span class="exp-tech-item">Vector DBs</span>
+                  <span class="exp-tech-item">Infor Cloudsuite</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="tech-strip" aria-hidden="true">
+          <div class="tech-strip-inner">
+            <span class="ts-item">Python · Django</span>
+            <span class="ts-dot">✦</span>
+            <span class="ts-item">LLM · RAG</span>
+            <span class="ts-dot">✦</span>
+            <span class="ts-item">AWS Cloud</span>
+            <span class="ts-dot">✦</span>
+            <span class="ts-item">Computer Vision</span>
+            <span class="ts-dot">✦</span>
+            <span class="ts-item">CNN · PyTorch</span>
+            <span class="ts-dot">✦</span>
+            <span class="ts-item">REST APIs</span>
+            <span class="ts-dot">✦</span>
+            <span class="ts-item">Automation</span>
+            <span class="ts-dot">✦</span>
+            <span class="ts-item">Python · Django</span>
+            <span class="ts-dot">✦</span>
+            <span class="ts-item">LLM · RAG</span>
+            <span class="ts-dot">✦</span>
+            <span class="ts-item">AWS Cloud</span>
+            <span class="ts-dot">✦</span>
+            <span class="ts-item">Computer Vision</span>
+            <span class="ts-dot">✦</span>
+            <span class="ts-item">CNN · PyTorch</span>
+            <span class="ts-dot">✦</span>
+            <span class="ts-item">REST APIs</span>
+            <span class="ts-dot">✦</span>
+            <span class="ts-item">Automation</span>
+            <span class="ts-dot">✦</span>
+          </div>
+        </div>
+      </section>
+      <!-- ═══════════════════════════ SKILLS ═══════════════════════════ -->
+      <section id="skills" aria-labelledby="skills-heading">
+        <div class="skills-inner">
+          <div class="skills-top">
+            <div class="section-label reveal" aria-hidden="true">
+              <span class="label-num">05</span>
+              <span class="label-text">Skills</span>
+              <span class="label-line"></span>
+            </div>
+            <div class="skills-header">
+              <h2 class="skills-headline reveal" id="skills-heading">
+                BUILT<br /><em>WITH</em>
+              </h2>
+              <p class="skills-copy reveal">
+                A working toolkit shaped by real projects — not checkbox skills.
+                Every entry earned by shipping things that had to work under
+                real-world pressure.
+              </p>
+            </div>
+          </div>
+          <div class="skills-grid" role="list" aria-label="Skill categories">
+            <div class="skill-category reveal" role="listitem">
+              <div class="sc-icon" aria-hidden="true">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="10" cy="10" r="3" />
+                  <path
+                    d="M10 2v2M10 16v2M2 10h2M16 10h2M4.22 4.22l1.42 1.42M14.36 14.36l1.42 1.42M4.22 15.78l1.42-1.42M14.36 5.64l1.42-1.42"
+                  />
+                </svg>
+              </div>
+              <h3 class="sc-title">AI / ML</h3>
+              <ul class="sc-list" role="list">
+                <li>PyTorch</li>
+                <li>TensorFlow</li>
+                <li>Scikit-learn</li>
+                <li>HuggingFace</li>
+                <li>LangChain</li>
+                <li>OpenCV</li>
+              </ul>
+            </div>
+            <div class="skill-category reveal" role="listitem">
+              <div class="sc-icon" aria-hidden="true">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="3" width="16" height="14" rx="2" />
+                  <path d="M7 7l3 3-3 3M11 13h2" />
+                </svg>
+              </div>
+              <h3 class="sc-title">Backend</h3>
+              <ul class="sc-list" role="list">
+                <li>Python</li>
+                <li>Django</li>
+                <li>FastAPI</li>
+                <li>REST APIs</li>
+                <li>PostgreSQL</li>
+                <li>Redis</li>
+              </ul>
+            </div>
+            <div class="skill-category reveal" role="listitem">
+              <div class="sc-icon" aria-hidden="true">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M3 6l7-4 7 4v8l-7 4-7-4z" />
+                  <path d="M10 2v18M3 6l7 4 7-4" />
+                </svg>
+              </div>
+              <h3 class="sc-title">Infrastructure</h3>
+              <ul class="sc-list" role="list">
+                <li>AWS</li>
+                <li>Docker</li>
+                <li>Linux</li>
+                <li>CI/CD</li>
+                <li>Git</li>
+                <li>Vector DBs</li>
+              </ul>
+            </div>
+            <div class="skill-category reveal" role="listitem">
+              <div class="sc-icon" aria-hidden="true">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M2 10h16M2 5h16M2 15h10" />
+                </svg>
+              </div>
+              <h3 class="sc-title">Data & Analysis</h3>
+              <ul class="sc-list" role="list">
+                <li>NumPy</li>
+                <li>Pandas</li>
+                <li>Matplotlib</li>
+                <li>RAG Pipelines</li>
+                <li>Embedding Models</li>
+                <li>Fine-tuning</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="marquee-container" aria-hidden="true">
+          <div class="marquee-wrap">
+            <div class="marquee">
+              <span class="mpill">Python</span><span class="mpill">Django</span
+              ><span class="mpill">PyTorch</span
+              ><span class="mpill">TensorFlow</span
+              ><span class="mpill">Computer Vision</span
+              ><span class="mpill">CNN</span><span class="mpill">LLM</span
+              ><span class="mpill">RAG</span><span class="mpill">AWS</span
+              ><span class="mpill">REST APIs</span
+              ><span class="mpill">PostgreSQL</span
+              ><span class="mpill">Docker</span>
+              <span class="mpill">Python</span><span class="mpill">Django</span
+              ><span class="mpill">PyTorch</span
+              ><span class="mpill">TensorFlow</span
+              ><span class="mpill">Computer Vision</span
+              ><span class="mpill">CNN</span><span class="mpill">LLM</span
+              ><span class="mpill">RAG</span><span class="mpill">AWS</span
+              ><span class="mpill">REST APIs</span
+              ><span class="mpill">PostgreSQL</span
+              ><span class="mpill">Docker</span>
+            </div>
+          </div>
+          <div class="marquee-wrap marquee-wrap--reverse">
+            <div class="marquee marquee--rev">
+              <span class="mpill">OpenCV</span
+              ><span class="mpill">LangChain</span
+              ><span class="mpill">FastAPI</span><span class="mpill">Redis</span
+              ><span class="mpill">Git</span><span class="mpill">Linux</span
+              ><span class="mpill">NumPy</span><span class="mpill">Pandas</span
+              ><span class="mpill">Scikit-learn</span
+              ><span class="mpill">HuggingFace</span
+              ><span class="mpill">Vector DBs</span
+              ><span class="mpill">CI/CD</span> <span class="mpill">OpenCV</span
+              ><span class="mpill">LangChain</span
+              ><span class="mpill">FastAPI</span><span class="mpill">Redis</span
+              ><span class="mpill">Git</span><span class="mpill">Linux</span
+              ><span class="mpill">NumPy</span><span class="mpill">Pandas</span
+              ><span class="mpill">Scikit-learn</span
+              ><span class="mpill">HuggingFace</span
+              ><span class="mpill">Vector DBs</span
+              ><span class="mpill">CI/CD</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ═══════════════════════════ CONTACT ═══════════════════════════ -->
+      <section id="contact" aria-labelledby="contact-heading">
+        <div class="contact-inner">
+          <div class="contact-left">
+            <div class="section-label reveal" aria-hidden="true">
+              <span class="label-num">06</span>
+              <span class="label-text">Contact</span>
+              <span class="label-line"></span>
+            </div>
+            <h2 class="contact-headline reveal" id="contact-heading">
+              LET'S<br /><em>TALK.</em>
+            </h2>
+            <p class="contact-sub reveal">
+              Whether it's a collaboration, opportunity, or an idea too big to
+              ignore — I'm interested. Reach out directly.
+            </p>
+            <div class="contact-availability reveal">
+              <span class="avail-dot" aria-hidden="true"></span>
+              <span>Open to opportunities &amp; freelance work</span>
+            </div>
+            <a
+              href="mailto:srinathkishore.a@gmail.com"
+              class="contact-email-link reveal"
+              aria-label="Send email to Srinath Kishore"
+            >
+              srinathkishore.a@gmail.com
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 4h12l-6 7-6-7zM4 4v9a1 1 0 001 1h10a1 1 0 001-1V4"
+                />
+              </svg>
+            </a>
+          </div>
+          <div class="contact-right">
+            <div class="contact-details">
+              <div class="contact-item reveal">
+                <span class="contact-item-label">Location</span>
+                <span class="contact-item-value"
+                  >Coimbatore, Tamil Nadu, India</span
+                >
+              </div>
+              <div class="contact-item reveal">
+                <span class="contact-item-label">GitHub</span>
+                <a
+                  href="https://github.com/srinathkishore"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact-item-value contact-item-link"
+                >
+                  github.com/srinathkishore
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M2 10L10 2M10 2H4M10 2v6" />
+                  </svg>
+                </a>
+              </div>
+              <div class="contact-item reveal">
+                <span class="contact-item-label">LinkedIn</span>
+                <a
+                  href="https://linkedin.com/in/srinathkishore"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact-item-value contact-item-link"
+                >
+                  linkedin.com/in/srinathkishore
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M2 10L10 2M10 2H4M10 2v6" />
+                  </svg>
+                </a>
+              </div>
+              <div class="contact-item reveal">
+                <span class="contact-item-label">Leetcode</span>
+                <a
+                  href="https://leetcode.com/u/user7929B/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact-item-value contact-item-link"
+                >
+                  leetcode.com/u/user7929B/
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M2 10L10 2M10 2H4M10 2v6" />
+                  </svg>
+                </a>
+              </div>
+              <div class="contact-item reveal">
+                <span class="contact-item-label">Chess.com</span>
+                <a
+                  href="https://chess.com/member/srinath_kishore"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact-item-value contact-item-link"
+                >
+                  chess.com/srinath_kishore
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M2 10L10 2M10 2H4M10 2v6" />
+                  </svg>
+                </a>
+              </div>
+              <div class="contact-item reveal">
+                <span class="contact-item-label">Resume</span>
+                <a
+                  href="assets/srinath-kishore-resume.pdf"
+                  class="contact-item-value contact-item-link"
+                  download
+                >
+                  Download PDF
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M6 2v6M3 6l3 3 3-3M2 10h8" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="site-footer" role="contentinfo">
+          <span class="footer-copy">© 2026 Srinath Kishore</span>
+          <span class="footer-tagline">
+            <em>systems &amp; intelligence</em>
+          </span>
+          <span class="footer-location">Coimbatore, Tamil Nadu</span>
+        </footer>
+      </section>
     </main>
-
     <script src="main.js" defer></script>
-</body>
-
-
+  </body>
 </html>
